@@ -1,3 +1,13 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/WaitFormCanceling/Form1.cs) (VB: [Form1.vb](./VB/WaitFormCanceling/Form1.vb))
+* [ILocked.cs](./CS/WaitFormCanceling/ILocked.cs) (VB: [ILocked.vb](./VB/WaitFormCanceling/ILocked.vb))
+* [Locker.cs](./CS/WaitFormCanceling/Locker.cs) (VB: [Locker.vb](./VB/WaitFormCanceling/Locker.vb))
+* [Person.cs](./CS/WaitFormCanceling/Person.cs) (VB: [Person.vb](./VB/WaitFormCanceling/Person.vb))
+* [Program.cs](./CS/WaitFormCanceling/Program.cs) (VB: [Program.vb](./VB/WaitFormCanceling/Program.vb))
+* [WaitForm1.cs](./CS/WaitFormCanceling/WaitForm1.cs) (VB: [WaitForm1.vb](./VB/WaitFormCanceling/WaitForm1.vb))
+<!-- default file list end -->
 # How to cancel time-consuming operation from the WaitForm
 
 
