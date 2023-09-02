@@ -3,21 +3,38 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E4524)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
 
+# WinForms Wait Form - How to cancel a time-consuming operation
+
+This example shows how to close the Wait Form to cancel a time-consuming operation:
+
+* Add a `GridControl` onto the Form.
+* Place a `BackgroundWorker` component onto the Form and handle its `RunWorkerCompleted` and `DoWork` events.
+* Place a `SplashScreenManager` components onto the Form.
+* Invoke the SplashScreen Manager's smart tag menu and add a Wait Form.
+* Add a **Load Data** button onto the Form and handle its `Click` event to load data and display a wait form.
+  
+  ```csharp
+  private void simpleButton1_Click(object sender, EventArgs e) {
+      Person.counter = 0;
+      backgroundWorker1.RunWorkerAsync(locker1);
+  
+      splashScreenManager1.ShowWaitForm();
+      splashScreenManager1.SendCommand(WaitForm1.WaitFormCommand.SendObject, locker1);
+  }
+  ```
+* Open the WaitForm designer and add a Cancel button.
+* Handle the Cancel button's `Click` event to cancel the operation:
+  ```csharp
+  private void simpleButton1_Click(object sender, EventArgs e) {
+      if (locker != null)
+          ((ILocked)locker).IsCanceled = true;
+  }
+  ```
+
+## Files to Review
+
+* [WaitForm1.cs](./CS/WaitFormCanceling/WaitForm1.cs) (VB: [WaitForm1.vb](./VB/WaitFormCanceling/WaitForm1.vb))
 * [Form1.cs](./CS/WaitFormCanceling/Form1.cs) (VB: [Form1.vb](./VB/WaitFormCanceling/Form1.vb))
 * [ILocked.cs](./CS/WaitFormCanceling/ILocked.cs) (VB: [ILocked.vb](./VB/WaitFormCanceling/ILocked.vb))
 * [Locker.cs](./CS/WaitFormCanceling/Locker.cs) (VB: [Locker.vb](./VB/WaitFormCanceling/Locker.vb))
-* [Person.cs](./CS/WaitFormCanceling/Person.cs) (VB: [Person.vb](./VB/WaitFormCanceling/Person.vb))
-* [Program.cs](./CS/WaitFormCanceling/Program.cs) (VB: [Program.vb](./VB/WaitFormCanceling/Program.vb))
-* [WaitForm1.cs](./CS/WaitFormCanceling/WaitForm1.cs) (VB: [WaitForm1.vb](./VB/WaitFormCanceling/WaitForm1.vb))
-<!-- default file list end -->
-# How to cancel time-consuming operation from the WaitForm
-
-
-<p>This example illustrates how to cancel a time-consuming operation on a WaitForm. To accomplish this task, place a BackgroundWorker and SplashScreenManager onto a Form, and add the Cancel button in the WaitForm's designer.  </p><p>The main idea is to perform data loading in a background thread, pass the ILocked object both to the WaitForm and to this thread, and check its condition while data is loading.</p>
-
-<br/>
-
-
