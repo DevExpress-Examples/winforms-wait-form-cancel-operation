@@ -32,9 +32,16 @@ This example shows how to close the Wait Form to cancel a time-consuming operati
   }
   ```
 
+
 ## Files to Review
 
 * [WaitForm1.cs](./CS/WaitFormCanceling/WaitForm1.cs) (VB: [WaitForm1.vb](./VB/WaitFormCanceling/WaitForm1.vb))
 * [Form1.cs](./CS/WaitFormCanceling/Form1.cs) (VB: [Form1.vb](./VB/WaitFormCanceling/Form1.vb))
 * [ILocked.cs](./CS/WaitFormCanceling/ILocked.cs) (VB: [ILocked.vb](./VB/WaitFormCanceling/ILocked.vb))
 * [Locker.cs](./CS/WaitFormCanceling/Locker.cs) (VB: [Locker.vb](./VB/WaitFormCanceling/Locker.vb))
+
+
+## Documentation
+
+* [WinForms Splash Screen Manager](https://docs.devexpress.com/WindowsForms/10826/controls-and-libraries/forms-and-user-controls/splash-screen-manager)
+* [Wait Form](https://docs.devexpress.com/WindowsForms/10824/controls-and-libraries/forms-and-user-controls/splash-screen-manager/wait-form)
