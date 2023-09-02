@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to cancel time-consuming operation from the WaitForm
 ' 
 ' This example illustrates how to cancel a time-consuming operation on a WaitForm.
@@ -9,56 +9,63 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E4524
-
-Imports System
-
 Namespace WaitFormCanceling
+
     Friend Class Person
 
-        Private firstName_Renamed As String
+        Private firstNameField As String
 
-        Private secondName_Renamed As String
+        Private secondNameField As String
 
-        Private comments_Renamed As String
+        Private commentsField As String
+
         Public Shared counter As Integer = 0
+
         Public Sub New(ByVal firstName As String, ByVal secondName As String)
-            Me.firstName_Renamed = firstName
-            Me.secondName_Renamed = secondName
-            comments_Renamed = String.Empty
+            firstNameField = firstName
+            secondNameField = secondName
+            commentsField = String.Empty
         End Sub
+
         Public Sub New(ByVal firstName As String, ByVal secondName As String, ByVal comments As String)
             Me.New(firstName, secondName)
-            Me.comments_Renamed = comments
+            commentsField = comments
         End Sub
+
         Public Sub New()
-            firstName_Renamed = "Name" & counter
-            secondName_Renamed = "SecondName" & counter
-            comments_Renamed = "Comments" & counter
+            firstNameField = "Name" & counter
+            secondNameField = "SecondName" & counter
+            commentsField = "Comments" & counter
             counter += 1
         End Sub
 
-        Public Property FirstName() As String
+        Public Property FirstName As String
             Get
-                Return firstName_Renamed
+                Return firstNameField
             End Get
+
             Set(ByVal value As String)
-                firstName_Renamed = value
+                firstNameField = value
             End Set
         End Property
-        Public Property SecondName() As String
+
+        Public Property SecondName As String
             Get
-                Return secondName_Renamed
+                Return secondNameField
             End Get
+
             Set(ByVal value As String)
-                secondName_Renamed = value
+                secondNameField = value
             End Set
         End Property
-        Public Property Comments() As String
+
+        Public Property Comments As String
             Get
-                Return comments_Renamed
+                Return commentsField
             End Get
+
             Set(ByVal value As String)
-                comments_Renamed = value
+                commentsField = value
             End Set
         End Property
     End Class

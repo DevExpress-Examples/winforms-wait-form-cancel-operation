@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to cancel time-consuming operation from the WaitForm
 ' 
 ' This example illustrates how to cancel a time-consuming operation on a WaitForm.
@@ -9,52 +9,49 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E4524
-
 Imports System
-Imports System.Collections.Generic
 Imports System.ComponentModel
-Imports System.Data
 Imports System.Drawing
-Imports System.Text
-Imports System.Windows.Forms
 Imports DevExpress.XtraWaitForm
-Imports System.Threading
 
 Namespace WaitFormCanceling
-    Partial Public Class WaitForm1
+
+    Public Partial Class WaitForm1
         Inherits WaitForm
 
         Public Sub New()
             InitializeComponent()
-            Me.progressPanel1.AutoHeight = True
+            progressPanel1.AutoHeight = True
         End Sub
-        Private locker As Object
-        #Region "Overrides"
 
+        Private locker As Object
+
+#Region "Overrides"
         Public Overrides Sub SetCaption(ByVal caption As String)
             MyBase.SetCaption(caption)
-            Me.progressPanel1.Caption = caption
-        End Sub
-        Public Overrides Sub SetDescription(ByVal description As String)
-            MyBase.SetDescription(description)
-            Me.progressPanel1.Description = description
-        End Sub
-        Public Overrides Sub ProcessCommand(ByVal cmd As System.Enum, ByVal arg As Object)
-            MyBase.ProcessCommand(cmd, arg)
-            Dim command As WaitFormCommand = CType(cmd, WaitFormCommand)
-                If command = WaitFormCommand.SendObject Then
-                    locker = arg
-                End If
+            progressPanel1.Caption = caption
         End Sub
 
-        #End Region
+        Public Overrides Sub SetDescription(ByVal description As String)
+            MyBase.SetDescription(description)
+            progressPanel1.Description = description
+        End Sub
+
+        Public Overrides Sub ProcessCommand(ByVal cmd As [Enum], ByVal arg As Object)
+            MyBase.ProcessCommand(cmd, arg)
+            Dim command As WaitFormCommand = CType(cmd, WaitFormCommand)
+            If command = WaitFormCommand.SendObject Then
+                locker = arg
+            End If
+        End Sub
+
+#End Region
         Public Enum WaitFormCommand
             SendObject
         End Enum
-        Private Sub simpleButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles simpleButton1.Click
-            If locker IsNot Nothing Then
-                DirectCast(locker, ILocked).IsCanceled = True
-            End If
+
+        Private Sub simpleButton1_Click(ByVal sender As Object, ByVal e As EventArgs)
+            If locker IsNot Nothing Then CType(locker, ILocked).IsCanceled = True
         End Sub
     End Class
 End Namespace

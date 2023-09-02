@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to cancel time-consuming operation from the WaitForm
 ' 
 ' This example illustrates how to cancel a time-consuming operation on a WaitForm.
@@ -9,9 +9,10 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E4524
-
 Namespace WaitFormCanceling
-    Partial Public Class WaitForm1
+
+    Partial Class WaitForm1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -22,14 +23,14 @@ Namespace WaitFormCanceling
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -79,12 +80,13 @@ Namespace WaitFormCanceling
             ' 
             ' simpleButton1
             ' 
-            Me.simpleButton1.Anchor = (CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles))
+            Me.simpleButton1.Anchor = CType(((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) Or System.Windows.Forms.AnchorStyles.Left) Or System.Windows.Forms.AnchorStyles.Right)), System.Windows.Forms.AnchorStyles)
             Me.simpleButton1.Location = New System.Drawing.Point(3, 63)
             Me.simpleButton1.Name = "simpleButton1"
             Me.simpleButton1.Size = New System.Drawing.Size(240, 30)
             Me.simpleButton1.TabIndex = 1
             Me.simpleButton1.Text = "Cancel"
+            AddHandler Me.simpleButton1.Click, New System.EventHandler(AddressOf Me.simpleButton1_Click)
             ' 
             ' WaitForm1
             ' 
@@ -101,13 +103,13 @@ Namespace WaitFormCanceling
             Me.tableLayoutPanel1.ResumeLayout(False)
             Me.ResumeLayout(False)
             Me.PerformLayout()
-
         End Sub
 
-        #End Region
-
+#End Region
         Private progressPanel1 As DevExpress.XtraWaitForm.ProgressPanel
+
         Private tableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-        Private WithEvents simpleButton1 As DevExpress.XtraEditors.SimpleButton
+
+        Private simpleButton1 As DevExpress.XtraEditors.SimpleButton
     End Class
 End Namespace

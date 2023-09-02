@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to cancel time-consuming operation from the WaitForm
 ' 
 ' This example illustrates how to cancel a time-consuming operation on a WaitForm.
@@ -9,22 +9,14 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E4524
-
-Imports System
-Imports System.Collections.Generic
 Imports System.ComponentModel
-Imports System.Data
 Imports System.Drawing
-Imports System.Text
-Imports System.Windows.Forms
-Imports DevExpress.Skins
-Imports DevExpress.LookAndFeel
-Imports DevExpress.UserSkins
-Imports DevExpress.XtraEditors
-Imports DevExpress.XtraSplashScreen
 
 Namespace WaitFormCanceling
+
     Public Interface ILocked
-        Property IsCanceled() As Boolean
+
+        Property IsCanceled As Boolean
+
     End Interface
 End Namespace
