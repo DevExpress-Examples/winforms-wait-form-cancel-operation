@@ -10,7 +10,7 @@ This example shows how to close the Wait Form to cancel a time-consuming operati
 
 * Add a `GridControl` onto the Form.
 * Place a `BackgroundWorker` component onto the Form and handle its `RunWorkerCompleted` and `DoWork` events.
-* Place a `SplashScreenManager` components onto the Form.
+* Place a `SplashScreenManager` component onto the Form.
 * Invoke the SplashScreen Manager's smart tag menu and add a Wait Form.
 * Add a **Load Data** button onto the Form and handle its `Click` event to load data and display a wait form.
   
